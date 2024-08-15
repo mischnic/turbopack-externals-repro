@@ -1,15 +1,17 @@
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  webpack: (webpackConfig, webpackOptions) => {
-    const incomingWebpackConfig = webpackConfig
+  webpack: (webpackConfig) => {
+    const incomingWebpackConfig = webpackConfig;
     return {
       ...incomingWebpackConfig,
       externals: [
         ...(incomingWebpackConfig?.externals || []),
-
-        'libsql',
+        "drizzle-orm",
+        "drizzle-orm/version",
       ],
-    }
+    };
   },
+  serverExternalPackages: ["drizzle-orm", "drizzle-orm/version"],
 };
 
 export default nextConfig;

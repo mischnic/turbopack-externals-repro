@@ -1,8 +1,9 @@
-import { drizzle } from 'drizzle-orm/libsql';
-import { createClient } from '@libsql/client';
+import { npmVersion } from "drizzle-orm/version";
 
-export async function test(dbURL) {
-    const client = createClient({ url: dbURL });
-    const db = drizzle(client);
-    console.log('db', db);
+// console.log(require.resolve("drizzle-orm/version"));
+// console.log(process.env.NODE_PATH);
+// console.trace(__filename);
+
+export function test() {
+  console.log("got version", npmVersion, "expected 0.32.1");
 }

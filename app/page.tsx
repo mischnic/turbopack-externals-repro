@@ -1,12 +1,8 @@
-
-import { test } from 'mydep';
+import { test } from "mydep";
+import { headers } from "next/headers";
 
 export default function Home() {
-  test('file:./test-sqlite.db')
-  
-  return (
-    <p>
-      test
-    </p>
-  );
+  test();
+  // Force dynamic route
+  return <p>test{[...headers().keys()].length}</p>;
 }
